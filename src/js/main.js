@@ -2,6 +2,8 @@
 
 const searchingGap = document.querySelector(".js-search");
 const button = document.querySelector(".js-btn");
+const resultsList = document.querySelector(".js-results-list");
+const favouriteList = document.querySelector(".js-favourite-list");
 
 const triggerSearch = () => {
   let searchingGapValue = searchingGap.value;
