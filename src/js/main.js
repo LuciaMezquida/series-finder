@@ -40,13 +40,15 @@ const paintShows = () => {
 
 //Make favourites list
 let favouritesDataList = [];
-const keepFavourites = (event) => {
+const getFavourites = (event) => {
   let selectedListId = event.currentTarget.id;
   const indexFav = favouritesDataList.indexOf(dataList[selectedListId]);
   console.log(indexFav);
   if (indexFav === -1) {
     favouritesDataList.push(dataList[selectedListId]);
+    event.currentTarget.classList.add("paint-favourite");
   }
+  localStorage.setItem("favourites", JSON.stringify(favouritesDataList));
   paintFavourites();
   // else {
   //   favouritesDataList.splice(indexFav, 1);
@@ -72,13 +74,23 @@ const paintFavourites = () => {
   favouriteList.innerHTML = htmlFavourite;
 };
 
+//Recover favourite list
+const recoverFavourites = () => {
+  const favouriteDataRecovered = JSON.parse(localStorage.getItem("favourite"));
+  if (favouriteDataRecovered === null) {
+    triggerSearch();
+  } else {
+    favouritesDataList = favouriteDataRecovered;
+  }
+};
 //listen every list item
 const listenListResults = () => {
   const listResults = document.querySelectorAll(".js-list");
   for (let item of listResults) {
-    item.addEventListener("click", keepFavourites);
+    item.addEventListener("click", getFavourites);
   }
 };
 
 button.addEventListener("click", triggerSearch);
 triggerSearch();
+recoverFavourites();
