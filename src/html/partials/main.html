@@ -1,7 +1,15 @@
 <main class="main">
   <section class="main__form-container">
     <form action="GET" class="main__form">
-      <input type="text" class="search js-search" />
+      <label for="text">¿Qué serie quieres buscar?</label>
+      <input
+        id="text"
+        type="text"
+        class="search js-search"
+        placeholder="ej:Game of Thrones"
+        required
+        value="witcher"
+      />
       <input type="button" value="Search" class="btn js-btn" />
     </form>
   </section>
