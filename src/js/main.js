@@ -25,7 +25,7 @@ const paintShows = () => {
   let htmlResult = "";
   for (let i = 0; i < dataList.length; i++) {
     htmlResult += `<li id="${i}" class="js-list">`;
-    htmlResult += "<div>";
+    htmlResult += "<div class='show-container'>";
     htmlResult += `<h3 class="list-title">${dataList[i].show.name}</h3>`;
     if (dataList[i].show.image === null) {
       htmlResult += `<img src="https://srv.latostadora.com/designall.dll/cat_not_available--i:14138557810514138520;x:20;w:520;m:1.jpg" width="210" height="260" alt="Image not found"/>`;
@@ -38,7 +38,7 @@ const paintShows = () => {
   resultsList.innerHTML = htmlResult;
 };
 
-//Paint favourites list
+//Make favourites list
 let favouritesDataList = [];
 const keepFavourites = (event) => {
   let selectedListId = event.currentTarget.id;
@@ -47,15 +47,31 @@ const keepFavourites = (event) => {
   if (indexFav === -1) {
     favouritesDataList.push(dataList[selectedListId]);
   }
+  paintFavourites();
   // else {
   //   favouritesDataList.splice(indexFav, 1);
   // }
-
-  //favouriteList.innerHTML = htmlFavourite;
-  console.log(favouritesDataList);
-  //console.log(event.currentTarget);
-  //console.log(htmlFavourite);
 };
+//Paint favourites list
+const paintFavourites = () => {
+  let htmlFavourite = "";
+  htmlFavourite += "<h2 class='favourite-title'>Mis favoritas</h2>";
+  for (let i = 0; i < favouritesDataList.length; i++) {
+    htmlFavourite += `<li id="${i}" class="js-list">`;
+    htmlFavourite += "<div>";
+    htmlFavourite += `<h3 class="list-title">${favouritesDataList[i].show.name}</h3>`;
+    if (favouritesDataList[i].show.image === null) {
+      htmlFavourite += `<img src="https://srv.latostadora.com/designall.dll/cat_not_available--i:14138557810514138520;x:20;w:520;m:1.jpg" width="100" height="130" alt="Image not found"/>`;
+    } else {
+      htmlFavourite += `<img class="list-image" src="${favouritesDataList[i].show.image.medium}" alt="Image of ${favouritesDataList[i].show.name}" width="100"/>`;
+    }
+    htmlFavourite += "<button>x</button>";
+    htmlFavourite += "</div>";
+    htmlFavourite += "</li>";
+  }
+  favouriteList.innerHTML = htmlFavourite;
+};
+
 //listen every list item
 const listenListResults = () => {
   const listResults = document.querySelectorAll(".js-list");
