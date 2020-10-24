@@ -15,23 +15,26 @@ const triggerSearch = () => {
     .then((data) => {
       dataList = data;
       paintShows();
+      listenListResults();
       paintFavourites();
+      setFavourites();
+      listenEachFavButton();
       if (dataList.length == 0) {
         resultsList.innerHTML = "<p class ='not-found-message'>No results found</p>";
       }
-      //que al recargar la página me los marque como favoritos
+      //que al recargar la página me marque los favoritos
       for (let i = 0; i < favouritesDataList.length; i++) {
         for (let j = 0; j < dataList.length; j++) {
           if (favouritesDataList[i].show.id === dataList[j].show.id) {
-            console.log("hola");
+            const listResults = document.querySelectorAll(".js-list");
+            listResults[j].classList.add("paint-favourite");
           }
         }
       }
-      listenListResults();
       console.log(favouritesDataList);
-      setFavourites();
     });
 };
+
 //Paint data into the browser
 const paintShows = () => {
   let htmlResult = "";
@@ -54,10 +57,8 @@ const paintShows = () => {
 const localStorageName = "favourites";
 console.log(favouritesDataList);
 const getFavourites = (event) => {
-  let selectedListId = event.currentTarget.id;
+  let selectedListId = parseInt(event.currentTarget.id);
   const indexFav = favouritesDataList.indexOf(dataList[selectedListId]);
-  const indexFav2 = favouritesDataList.indexOf(favouritesDataList[selectedListId]);
-  console.log(indexFav);
   if (indexFav === -1) {
     favouritesDataList.push(dataList[selectedListId]);
     event.currentTarget.classList.add("paint-favourite");
@@ -66,12 +67,13 @@ const getFavourites = (event) => {
     event.currentTarget.classList.remove("paint-favourite");
   }
   paintFavourites();
+  listenEachFavButton();
 };
 //Paint favourites list
 const paintFavourites = () => {
   let htmlFavourite = "";
   for (let i = 0; i < favouritesDataList.length; i++) {
-    htmlFavourite += `<li id="${i}" class="js-list">`;
+    htmlFavourite += `<li id="${i}" class="js-fav">`;
     htmlFavourite += "<div>";
     htmlFavourite += `<h3 class="list-title">${favouritesDataList[i].show.name}</h3>`;
     if (favouritesDataList[i].show.image === null) {
@@ -79,11 +81,34 @@ const paintFavourites = () => {
     } else {
       htmlFavourite += `<img class="list-image" src="${favouritesDataList[i].show.image.medium}" alt="Image of ${favouritesDataList[i].show.name}" width="100"/>`;
     }
-    htmlFavourite += "<button classs='delete-button'>x</button>";
+    htmlFavourite += `<button class="delete-button button" name="${i}">x</button>`;
     htmlFavourite += "</div>";
     htmlFavourite += "</li>";
   }
   favouriteList.innerHTML = htmlFavourite;
+  setFavourites();
+};
+//List every delete button
+const deleteEachFav = (event) => {
+  const indexButton = parseInt(event.currentTarget.name);
+  favouritesDataList.splice(indexButton, 1);
+  paintFavourites();
+  listenEachFavButton();
+  for (let i = 0; i < favouritesDataList.length; i++) {
+    for (let j = 0; j < dataList.length; j++) {
+      if (favouritesDataList[i].show.id === dataList[j].show.id) {
+        const listResults = document.querySelectorAll(".js-list");
+        listResults[j].classList.remove("paint-favourite");
+        console.log(listResults);
+      }
+    }
+  }
+};
+const listenEachFavButton = () => {
+  const deleteEachFavButton = document.querySelectorAll(".delete-button");
+  for (const item of deleteEachFavButton) {
+    item.addEventListener("click", deleteEachFav);
+  }
 };
 //Set favourites list
 const setFavourites = () => {
@@ -109,6 +134,7 @@ deleteAllButton.addEventListener("click", function () {
   for (const item of listResults) {
     item.classList.remove("paint-favourite");
   }
+  favouritesDataList = [];
   favouriteList.innerHTML = "";
   localStorage.clear();
 });
