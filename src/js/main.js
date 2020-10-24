@@ -7,6 +7,7 @@ const favouriteList = document.querySelector(".js-favourite-list");
 
 //Call API to get info
 let dataList = [];
+let favouritesDataList = [];
 const triggerSearch = () => {
   let searchingGapValue = searchingGap.value;
   fetch(`//api.tvmaze.com/search/shows?q=${searchingGapValue}`)
@@ -14,10 +15,21 @@ const triggerSearch = () => {
     .then((data) => {
       dataList = data;
       paintShows();
+      paintFavourites();
       if (dataList.length == 0) {
-        resultsList.innerHTML = "<p class ='not-found-message'>No se han encontrado resultados</p>";
+        resultsList.innerHTML = "<p class ='not-found-message'>No results found</p>";
+      }
+      //que al recargar la página me los marque como favoritos
+      for (let i = 0; i < favouritesDataList.length; i++) {
+        for (let j = 0; j < dataList.length; j++) {
+          if (favouritesDataList[i].show.id === dataList[j].show.id) {
+            console.log("hola");
+          }
+        }
       }
       listenListResults();
+      console.log(favouritesDataList);
+      setFavourites();
     });
 };
 //Paint data into the browser
@@ -40,10 +52,11 @@ const paintShows = () => {
 
 //Make favourites list
 const localStorageName = "favourites";
-let favouritesDataList = [];
+console.log(favouritesDataList);
 const getFavourites = (event) => {
   let selectedListId = event.currentTarget.id;
   const indexFav = favouritesDataList.indexOf(dataList[selectedListId]);
+  const indexFav2 = favouritesDataList.indexOf(favouritesDataList[selectedListId]);
   console.log(indexFav);
   if (indexFav === -1) {
     favouritesDataList.push(dataList[selectedListId]);
@@ -52,11 +65,7 @@ const getFavourites = (event) => {
     favouritesDataList.splice(indexFav, 1);
     event.currentTarget.classList.remove("paint-favourite");
   }
-  localStorage.setItem(localStorageName, JSON.stringify(favouritesDataList));
   paintFavourites();
-  // else {
-  //
-  // }
 };
 //Paint favourites list
 const paintFavourites = () => {
@@ -70,17 +79,20 @@ const paintFavourites = () => {
     } else {
       htmlFavourite += `<img class="list-image" src="${favouritesDataList[i].show.image.medium}" alt="Image of ${favouritesDataList[i].show.name}" width="100"/>`;
     }
-    htmlFavourite += "<button>x</button>";
+    htmlFavourite += "<button classs='delete-button'>x</button>";
     htmlFavourite += "</div>";
     htmlFavourite += "</li>";
   }
   favouriteList.innerHTML = htmlFavourite;
 };
+//Set favourites list
+const setFavourites = () => {
+  localStorage.setItem(localStorageName, JSON.stringify(favouritesDataList));
+};
 
-//Recover favourite list
+//Recover favourites list
 const recoverFavourites = () => {
   const favouriteDataRecovered = JSON.parse(localStorage.getItem(localStorageName));
-  console.log(favouriteDataRecovered);
   if (favouriteDataRecovered === null) {
     triggerSearch();
   } else {
@@ -91,6 +103,15 @@ const recoverFavourites = () => {
 };
 
 //Delete favourites
+const deleteAllButton = document.querySelector(".js-delete-all");
+deleteAllButton.addEventListener("click", function () {
+  const listResults = document.querySelectorAll(".js-list");
+  for (const item of listResults) {
+    item.classList.remove("paint-favourite");
+  }
+  favouriteList.innerHTML = "";
+  localStorage.clear();
+});
 
 //listen every list item
 const listenListResults = () => {
