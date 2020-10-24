@@ -22,9 +22,7 @@ const triggerSearch = () => {
       }
       setFavourites();
       listenEachFavButton();
-      //que al recargar la página me marque los favoritos
       selectShowsFav();
-      console.log(favouritesDataList);
     });
 };
 
@@ -48,18 +46,15 @@ const paintShows = () => {
 
 //Make favourites list
 const localStorageName = "favourites";
-console.log(favouritesDataList);
 const getFavourites = (event) => {
   let selectedListId = parseInt(event.currentTarget.id);
-  let indexFav = favouritesDataList.indexOf(dataList[selectedListId]);
-
+  let indexFav = -1;
   for (let i = 0; i < favouritesDataList.length; i++) {
     if (favouritesDataList[i].show.id == dataList[selectedListId].show.id) {
       indexFav = i;
       break;
     }
   }
-
   if (indexFav === -1) {
     favouritesDataList.push(dataList[selectedListId]);
     event.currentTarget.classList.add("paint-favourite");
