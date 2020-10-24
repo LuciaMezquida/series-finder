@@ -17,20 +17,13 @@ const triggerSearch = () => {
       paintShows();
       listenListResults();
       paintFavourites();
-      setFavourites();
-      listenEachFavButton();
       if (dataList.length == 0) {
         resultsList.innerHTML = "<p class ='not-found-message'>No results found</p>";
       }
+      setFavourites();
+      listenEachFavButton();
       //que al recargar la página me marque los favoritos
-      for (let i = 0; i < favouritesDataList.length; i++) {
-        for (let j = 0; j < dataList.length; j++) {
-          if (favouritesDataList[i].show.id === dataList[j].show.id) {
-            const listResults = document.querySelectorAll(".js-list");
-            listResults[j].classList.add("paint-favourite");
-          }
-        }
-      }
+      selectShowsFav();
       console.log(favouritesDataList);
     });
 };
@@ -39,7 +32,7 @@ const triggerSearch = () => {
 const paintShows = () => {
   let htmlResult = "";
   for (let i = 0; i < dataList.length; i++) {
-    htmlResult += `<li id="${i}" class="js-list">`;
+    htmlResult += `<li id="${i}" name="${i}" class="js-list">`;
     htmlResult += "<div class='show-container'>";
     htmlResult += `<h3 class="list-title">${dataList[i].show.name}</h3>`;
     if (dataList[i].show.image === null) {
@@ -58,7 +51,15 @@ const localStorageName = "favourites";
 console.log(favouritesDataList);
 const getFavourites = (event) => {
   let selectedListId = parseInt(event.currentTarget.id);
-  const indexFav = favouritesDataList.indexOf(dataList[selectedListId]);
+  let indexFav = favouritesDataList.indexOf(dataList[selectedListId]);
+
+  for (let i = 0; i < favouritesDataList.length; i++) {
+    if (favouritesDataList[i].show.id == dataList[selectedListId].show.id) {
+      indexFav = i;
+      break;
+    }
+  }
+
   if (indexFav === -1) {
     favouritesDataList.push(dataList[selectedListId]);
     event.currentTarget.classList.add("paint-favourite");
@@ -73,7 +74,7 @@ const getFavourites = (event) => {
 const paintFavourites = () => {
   let htmlFavourite = "";
   for (let i = 0; i < favouritesDataList.length; i++) {
-    htmlFavourite += `<li id="${i}" class="js-fav">`;
+    htmlFavourite += `<li name"${i}" class="js-fav">`;
     htmlFavourite += "<div>";
     htmlFavourite += `<h3 class="list-title">${favouritesDataList[i].show.name}</h3>`;
     if (favouritesDataList[i].show.image === null) {
@@ -93,16 +94,10 @@ const deleteEachFav = (event) => {
   const indexButton = parseInt(event.currentTarget.name);
   favouritesDataList.splice(indexButton, 1);
   paintFavourites();
+  paintShows();
+  selectShowsFav();
   listenEachFavButton();
-  for (let i = 0; i < favouritesDataList.length; i++) {
-    for (let j = 0; j < dataList.length; j++) {
-      if (favouritesDataList[i].show.id === dataList[j].show.id) {
-        const listResults = document.querySelectorAll(".js-list");
-        listResults[j].classList.remove("paint-favourite");
-        console.log(listResults);
-      }
-    }
-  }
+  listenListResults();
 };
 const listenEachFavButton = () => {
   const deleteEachFavButton = document.querySelectorAll(".delete-button");
@@ -124,6 +119,18 @@ const recoverFavourites = () => {
     favouritesDataList = favouriteDataRecovered;
     paintFavourites();
     listenListResults();
+  }
+};
+
+//Select favourites
+const selectShowsFav = () => {
+  for (let i = 0; i < favouritesDataList.length; i++) {
+    for (let j = 0; j < dataList.length; j++) {
+      if (favouritesDataList[i].show.id === dataList[j].show.id) {
+        const listResults = document.querySelectorAll(".js-list");
+        listResults[j].classList.add("paint-favourite");
+      }
+    }
   }
 };
 
