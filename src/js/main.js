@@ -48,17 +48,19 @@ const getFavourites = (event) => {
   if (indexFav === -1) {
     favouritesDataList.push(dataList[selectedListId]);
     event.currentTarget.classList.add("paint-favourite");
+  } else {
+    favouritesDataList.splice(indexFav, 1);
+    event.currentTarget.classList.remove("paint-favourite");
   }
   localStorage.setItem(localStorageName, JSON.stringify(favouritesDataList));
   paintFavourites();
   // else {
-  //   favouritesDataList.splice(indexFav, 1);
+  //
   // }
 };
 //Paint favourites list
 const paintFavourites = () => {
   let htmlFavourite = "";
-  htmlFavourite += "<h2 class='favourite-title'>Mis favoritas</h2>";
   for (let i = 0; i < favouritesDataList.length; i++) {
     htmlFavourite += `<li id="${i}" class="js-list">`;
     htmlFavourite += "<div>";
@@ -87,6 +89,9 @@ const recoverFavourites = () => {
     listenListResults();
   }
 };
+
+//Delete favourites
+
 //listen every list item
 const listenListResults = () => {
   const listResults = document.querySelectorAll(".js-list");
