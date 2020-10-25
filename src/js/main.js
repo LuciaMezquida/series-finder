@@ -16,5 +16,4 @@ const listenListResults = () => {
 };
 
 button.addEventListener("click", triggerSearch);
-triggerSearch();
 recoverFavourites();

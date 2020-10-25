@@ -6,10 +6,10 @@ const triggerSearch = () => {
     .then((data) => {
       dataList = data;
       paintShows();
-      listenListResults();
-      if (dataList.length == 0) {
+      if (dataList.length === 0) {
         resultsList.innerHTML = "<p class ='not-found-message'>No results found</p>";
       }
+      listenListResults();
       paintFavourites();
       setFavourites();
       listenEachDelButton();
