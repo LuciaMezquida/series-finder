@@ -16,4 +16,10 @@ const listenListResults = () => {
 };
 
 button.addEventListener("click", triggerSearch);
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    triggerSearch();
+  }
+});
 recoverFavourites();
