@@ -1,30 +1,32 @@
 .header {
-  background-color: $color-title;
   display: flex;
   justify-content: center;
   &__container {
-    width: 345px;
-    height: 46vh;
+    width: 580px;
+    height: 30vh;
     background-color: white;
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
-    margin: 3rem 0 3rem 0;
+    margin: 2rem 0 3rem 0;
   }
   &__image {
     width: 250px;
   }
-  &__title {
-    text-transform: uppercase;
-    font-family: $font-title;
-    font-size: 70px;
-    color: $color-title;
-  }
-  &__miniTitle {
-    text-transform: capitalize;
-    font-family: $font-main;
-    font-size: 30px;
-    letter-spacing: 1px;
+  &__title-container {
+    text-align: center;
+    padding: 0 10px;
+    &--title {
+      text-transform: uppercase;
+      font-family: $font-title;
+      font-size: 70px;
+      color: $color-title;
+    }
+    &--miniTitle {
+      text-transform: capitalize;
+      font-family: $font-main;
+      font-size: 35px;
+      letter-spacing: 1px;
+    }
   }
 }
