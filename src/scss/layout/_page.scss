@@ -1,7 +1,7 @@
 body {
-  background-color: $color-title;
+  background-color: $color-primary;
 }
 .paint-favourite {
-  background-color: black;
-  color: white;
+  background-color: $color-secondary;
+  color: $color-primary;
 }

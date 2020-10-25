@@ -4,7 +4,8 @@
   &__container {
     width: 580px;
     height: 30vh;
-    background-color: white;
+    border-radius: 5px;
+    background-color: $color-secondary;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,13 +21,14 @@
       text-transform: uppercase;
       font-family: $font-title;
       font-size: 70px;
-      color: $color-title;
+      color: $color-primary;
     }
     &--miniTitle {
       text-transform: capitalize;
       font-family: $font-main;
       font-size: 35px;
       letter-spacing: 1px;
+      color: $color-tertiary;
     }
   }
 }

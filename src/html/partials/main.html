@@ -1,7 +1,7 @@
 <main class="main">
   <section class="main__form-container">
     <form action="GET" class="main__form">
-      <label for="text">What series do you want to search?</label>
+      <label class="input-title" for="text">What series do you want to search?</label>
       <input
         id="text"
         type="text"
@@ -13,12 +13,14 @@
       <input type="button" value="Search" class="btn js-btn" />
     </form>
   </section>
-  <aside class="main__favourites">
-    <h2 class="main__favourties--title">Favourites</h2>
-    <ul class="main__favourites--list js-favourite-list"></ul>
-    <button class="main__favourites--button js-delete-all">Delete all</button>
-  </aside>
-  <section class="main__results">
-    <ul class="main__results--list js-results-list"></ul>
+  <section class="main__results-container">
+    <aside class="main__favourites">
+      <h2 class="main__favourties--title">Favourites</h2>
+      <ul class="main__favourites--list js-favourite-list"></ul>
+      <button class="main__favourites--button js-delete-all">Delete all</button>
+    </aside>
+    <article class="main__results">
+      <ul class="main__results--list js-results-list"></ul>
+    </article>
   </section>
 </main>
