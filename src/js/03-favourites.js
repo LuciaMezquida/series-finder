@@ -27,7 +27,7 @@ const paintFavourites = () => {
     htmlFavourite += "<div>";
     htmlFavourite += `<h3 class="list-title">${favouritesDataList[i].show.name}</h3>`;
     if (favouritesDataList[i].show.image === null) {
-      htmlFavourite += `<img src="https://srv.latostadora.com/designall.dll/cat_not_available--i:14138557810514138520;x:20;w:520;m:1.jpg" width="100" height="130" alt="Image not found"/>`;
+      htmlFavourite += `<img src="./assets/images/not-found-image.jpg" width="100" height="130" alt="Image not found"/>`;
     } else {
       htmlFavourite += `<img class="list-image" src="${favouritesDataList[i].show.image.medium}" alt="Image of ${favouritesDataList[i].show.name}" width="100"/>`;
     }

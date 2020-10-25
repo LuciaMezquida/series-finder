@@ -6,7 +6,7 @@ const paintShows = () => {
     htmlResult += "<div class='show-container'>";
     htmlResult += `<h3 class="list-title">${dataList[i].show.name}</h3>`;
     if (dataList[i].show.image === null) {
-      htmlResult += `<img src="https://srv.latostadora.com/designall.dll/cat_not_available--i:14138557810514138520;x:20;w:520;m:1.jpg" width="210" height="260" alt="Image not found"/>`;
+      htmlResult += `<img src="./assets/images/not-found-image.jpg" width="210" height="260" alt="Image not found"/>`;
     } else {
       htmlResult += `<img class="list-image" src="${dataList[i].show.image.medium}" alt="Image of ${dataList[i].show.name}"/>`;
     }
