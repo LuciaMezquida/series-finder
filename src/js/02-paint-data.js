@@ -2,7 +2,7 @@
 const paintShows = () => {
   let htmlResult = "";
   for (let i = 0; i < dataList.length; i++) {
-    htmlResult += `<li id="${i}" name="${i}" class="list js-list">`;
+    htmlResult += `<li id="${i}" name="${i}" class="color-list list js-list">`;
     htmlResult += "<div class='show-container'>";
     htmlResult += `<h3 class="list-title">${dataList[i].show.name}</h3>`;
     if (dataList[i].show.image === null) {

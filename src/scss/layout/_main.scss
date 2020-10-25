@@ -5,13 +5,13 @@
     &--input-title {
       color: $color-secondary;
       display: block;
-      font-size: 21px;
+      font-size: 25px;
     }
     &--search {
-      width: 200px;
-      height: 30px;
+      width: 245px;
+      height: 35px;
       padding-left: 10px;
-      font-size: 17px;
+      font-size: 18px;
       border-radius: 5px;
       border: none;
       color: $color-tertiary;
@@ -19,9 +19,9 @@
     }
     &--btn {
       background-color: $color-tertiary;
-      width: 100px;
-      height: 30px;
-      font-size: 17px;
+      width: 110px;
+      height: 35px;
+      font-size: 18px;
       border-radius: 5px;
       border: none;
       color: $color-secondary;
@@ -43,7 +43,7 @@
       font-size: 30px;
       color: $color-secondary;
       display: inline;
-      margin-right: 20px;
+      margin-right: 40px;
     }
     &--button {
       background-color: $color-tertiary;
@@ -62,49 +62,56 @@
   &__results {
     width: 75vw;
     margin: auto;
+    color: $color-secondary;
     &--list {
-      transform: translate(0px, -100px);
+      transform: translate(0px, -120px);
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     }
     .list {
       list-style-type: none;
-      color: $color-secondary;
       display: flex;
       justify-content: center;
       margin: 10px 110px;
-      padding-bottom: 35px;
+      padding: 15px 0 35px 0;
+      border-radius: 5px;
       .show-container {
         text-align: center;
       }
     }
   }
-}
-.fav-list {
-  color: $color-secondary;
-  font-size: 20px;
-  list-style-type: none;
-}
-.fav-container {
-  display: flex;
-}
-.list-title {
-  margin-top: 15px;
-}
-.delete-button {
-  margin: 50px 0 0 50px;
-  width: 10px;
-  height: 10px;
-  padding: 12px;
-  border-radius: 50%;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: $font-title;
-  font-size: 18px;
-  outline-style: none;
-  background-color: $color-tertiary;
-  color: $color-secondary;
+  .fav-list {
+    color: $color-secondary;
+    font-size: 20px;
+    list-style-type: none;
+  }
+  .fav-container {
+    display: flex;
+  }
+  .fav-list-title {
+    margin-top: 15px;
+  }
+  .delete-button {
+    margin: 50px 0 0 50px;
+    width: 10px;
+    height: 10px;
+    padding: 12px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $font-title;
+    font-size: 18px;
+    outline-style: none;
+    background-color: $color-tertiary;
+    color: $color-secondary;
+  }
+  .not-found-message {
+    font-size: 80px;
+    font-family: $font-secondary;
+    text-align: center;
+    transform: translate(200px, 10px);
+  }
 }
