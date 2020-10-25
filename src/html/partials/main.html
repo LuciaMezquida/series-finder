@@ -1,23 +1,25 @@
 <main class="main">
   <section class="main__form-container">
     <form action="GET" class="main__form">
-      <label class="input-title" for="text">What series do you want to search?</label>
+      <label class="main__form-container--input-title" for="text"
+        >What series do you want to search?</label
+      >
       <input
         id="text"
         type="text"
-        class="search js-search"
+        class="main__form-container--search js-search"
         placeholder="ej:Game of Thrones"
         required
         value="witcher"
       />
-      <input type="button" value="Search" class="btn js-btn" />
+      <input type="button" value="Search" class="main__form-container--btn js-btn" />
     </form>
   </section>
   <section class="main__results-container">
     <aside class="main__favourites">
-      <h2 class="main__favourties--title">Favourites</h2>
-      <ul class="main__favourites--list js-favourite-list"></ul>
+      <h2 class="main__favourites--title">Favourites</h2>
       <button class="main__favourites--button js-delete-all">Delete all</button>
+      <ul class="main__favourites--list js-favourite-list"></ul>
     </aside>
     <article class="main__results">
       <ul class="main__results--list js-results-list"></ul>
