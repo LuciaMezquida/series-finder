@@ -1,5 +1,30 @@
-.page__header {
+.header {
+  background-color: $color-title;
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 3rem;
+  justify-content: center;
+  &__container {
+    width: 345px;
+    height: 46vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem 0 3rem 0;
+  }
+  &__image {
+    width: 250px;
+  }
+  &__title {
+    text-transform: uppercase;
+    font-family: $font-title;
+    font-size: 70px;
+    color: $color-title;
+  }
+  &__miniTitle {
+    text-transform: capitalize;
+    font-family: $font-main;
+    font-size: 30px;
+    letter-spacing: 1px;
+  }
 }
