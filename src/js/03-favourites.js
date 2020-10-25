@@ -23,9 +23,9 @@ const getFavourites = (event) => {
 const paintFavourites = () => {
   let htmlFavourite = "";
   for (let i = 0; i < favouritesDataList.length; i++) {
-    htmlFavourite += `<li name"${i}" class="js-fav">`;
-    htmlFavourite += "<div>";
+    htmlFavourite += `<li name"${i}" class="fav-list js-fav">`;
     htmlFavourite += `<h3 class="list-title">${favouritesDataList[i].show.name}</h3>`;
+    htmlFavourite += "<div class='fav-container'>";
     if (favouritesDataList[i].show.image === null) {
       htmlFavourite += `<img src="./assets/images/not-found-image.jpg" width="100" height="130" alt="Image not found"/>`;
     } else {

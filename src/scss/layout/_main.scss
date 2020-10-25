@@ -66,3 +66,28 @@
     }
   }
 }
+.fav-list {
+  color: $color-secondary;
+  font-size: 20px;
+  list-style-type: none;
+}
+.fav-container {
+  display: flex;
+}
+.list-title {
+  margin-top: 15px;
+}
+.delete-button {
+  margin: 50px 0 0 50px;
+  width: 10px;
+  height: 10px;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-title;
+  font-size: 18px;
+  outline-style: none;
+}
