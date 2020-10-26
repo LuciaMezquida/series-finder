@@ -1,7 +1,7 @@
 {
-	"name": "adalab-web-starter-kit",
+	"name": "luciflix",
 	"version": "3.0.1",
-	"description": "Adalab web starter kit",
+	"description": "series finder",
 	"dependencies": {
 		"browser-sync": "^2.26.12",
 		"del": "^5.1.0",
@@ -32,9 +32,9 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://git@github.com:Adalab/adalab-web-starter-kit.git"
+		"url": "git+ssh://git@github.com:Adalab/modulo-2-evaluacion-final-LuciaMezquida.git"
 	},
-	"author": "Adalab",
+	"author": "LuciaMezquida",
 	"license": "MIT",
-	"homepage": "https://github.com/adalab/adalab-web-starter-kit"
+	"homepage": "https://beta.adalab.es/modulo-2-evaluacion-final-LuciaMezquida/"
 }
