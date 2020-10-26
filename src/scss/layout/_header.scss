@@ -3,7 +3,7 @@
   justify-content: center;
   &__container {
     width: 580px;
-    height: 25vh;
+    height: 21vh;
     border-radius: 5px;
     background-color: $color-secondary;
     display: flex;
@@ -12,7 +12,7 @@
     margin: 2rem 0 2rem 0;
   }
   &__image {
-    width: 175px;
+    width: 150px;
   }
   &__title-container {
     text-align: center;
@@ -20,13 +20,13 @@
     &--title {
       text-transform: uppercase;
       font-family: $font-title;
-      font-size: 70px;
+      font-size: 65px;
       color: $color-primary;
     }
     &--miniTitle {
       text-transform: capitalize;
       font-family: $font-secondary;
-      font-size: 35px;
+      font-size: 30px;
       letter-spacing: 1px;
       color: $color-tertiary;
     }
