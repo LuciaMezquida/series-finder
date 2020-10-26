@@ -24,3 +24,4 @@ document.addEventListener("keydown", function (event) {
   }
 });
 recoverFavourites();
+listenEachDelButton();
