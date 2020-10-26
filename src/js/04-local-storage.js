@@ -1,5 +1,5 @@
-//Set favourites list
-const setFavourites = () => {
+//Set local storage favourites list
+const setStorageFavourites = () => {
   localStorage.setItem(localStorageName, JSON.stringify(favouritesDataList));
 };
 

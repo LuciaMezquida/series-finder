@@ -36,7 +36,7 @@ const paintFavourites = () => {
     htmlFavourite += "</li>";
   }
   favouriteList.innerHTML = htmlFavourite;
-  setFavourites();
+  setStorageFavourites();
 };
 //Select favourites
 const selectShowsFav = () => {

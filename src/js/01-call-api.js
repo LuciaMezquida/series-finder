@@ -11,7 +11,7 @@ const triggerSearch = () => {
       }
       listenListResults();
       paintFavourites();
-      setFavourites();
+      setStorageFavourites();
       listenEachDelButton();
       selectShowsFav();
     });
