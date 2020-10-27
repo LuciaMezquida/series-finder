@@ -2,6 +2,7 @@
 const localStorageName = "favourites";
 const getFavourites = (event) => {
   let selectedListId = parseInt(event.currentTarget.id);
+  console.log(dataList[selectedListId].show.name);
   let indexFav = -1;
   for (let i = 0; i < favouritesDataList.length; i++) {
     if (favouritesDataList[i].show.id == dataList[selectedListId].show.id) {
@@ -10,7 +11,7 @@ const getFavourites = (event) => {
     }
   }
   if (indexFav === -1) {
-    favouritesDataList.push(dataList[selectedListId]);
+    //favouritesDataList.push(dataList[selectedListId]);
     event.currentTarget.classList.add("paint-favourite");
   } else {
     favouritesDataList.splice(indexFav, 1);
