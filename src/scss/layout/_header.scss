@@ -1,6 +1,8 @@
 .header {
   display: flex;
   justify-content: center;
+  background-color: $color-primary;
+  height: 28vh;
   &__container {
     width: 580px;
     height: 21vh;

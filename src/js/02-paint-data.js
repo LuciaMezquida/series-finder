@@ -5,14 +5,6 @@ const paintShows = () => {
     htmlResult += `<li id="${i}" name="${i}" class="color-list list js-list">`;
     htmlResult += "<div class='show-container'>";
     htmlResult += `<h3 class="list-title">${dataList[i].show.name}</h3>`;
-    console.log(dataList[i].show.genres);
-    if (dataList[i].show.genres.length === 0) {
-      htmlResult += `<p>No genres available</p>`;
-    } else {
-      for (let j = 0; j < dataList[i].show.genres.length; j++) {
-        htmlResult += `<p>${dataList[i].show.genres[j]}</p>`;
-      }
-    }
     if (dataList[i].show.image === null) {
       htmlResult += `<img src="./assets/images/not-found-image.jpg" width="210" height="260" alt="Image not found"/>`;
     } else {

@@ -1,10 +1,14 @@
 .main {
   font-family: $font-main;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/9/93/Wikimania_2009_-_Seats_of_Alvear_Theater.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 72vh;
   &__form-container {
     padding: 20px;
+    text-align: center;
     &--input-title {
       color: $color-secondary;
-      display: block;
       font-size: 25px;
     }
     &--search {
@@ -36,6 +40,8 @@
     display: flex;
   }
   &__favourites {
+    height: 61vh;
+    overflow-y: scroll;
     width: 25vw;
     padding-left: 40px;
     margin-top: 20px;
@@ -60,11 +66,12 @@
     }
   }
   &__results {
+    height: 63vh;
+    overflow-y: scroll;
     width: 75vw;
     margin: auto;
     color: $color-secondary;
     &--list {
-      transform: translate(0px, -120px);
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
