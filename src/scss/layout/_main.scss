@@ -1,25 +1,36 @@
 .main {
   font-family: $font-main;
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/9/93/Wikimania_2009_-_Seats_of_Alvear_Theater.jpg);
+  background-image: url(../../assets/images/platea.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 72vh;
+  height: 92vh;
+  @media all and (min-width: 768px) {
+    height: 72vh;
+  }
   &__form-container {
     padding: 20px;
     text-align: center;
     &--input-title {
       color: $color-secondary;
-      font-size: 25px;
+      font-size: 20px;
+      @media all and (min-width: 768px) {
+        font-size: 25px;
+      }
     }
     &--search {
-      width: 240px;
-      height: 35px;
+      width: 290px;
+      height: 45px;
       padding-left: 10px;
       font-size: 18px;
       border-radius: 5px;
       border: none;
       color: $color-tertiary;
       outline-style: none;
+      margin-bottom: 10px;
+      @media all and (min-width: 768px) {
+        width: 350px;
+        margin-bottom: 0;
+      }
     }
     &--btn {
       background-color: $color-tertiary;
@@ -40,11 +51,17 @@
     display: flex;
   }
   &__favourites {
+    display: none;
+    border-right: 3px solid white;
     height: 61vh;
     overflow-y: scroll;
     width: 25vw;
     padding-left: 40px;
     margin-top: 20px;
+    @media all and (min-width: 768px) {
+      display: inline;
+    }
+
     &--title {
       font-size: 27px;
       color: $color-secondary;
@@ -72,19 +89,21 @@
     margin: auto;
     color: $color-secondary;
     &--list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .list {
       list-style-type: none;
       display: flex;
       justify-content: center;
-      margin: 10px 110px;
+      margin: 10px 90px;
       padding: 15px 0 35px 0;
       border-radius: 5px;
       .show-container {
         text-align: center;
+        width: 250px;
+        height: 390px;
       }
     }
   }

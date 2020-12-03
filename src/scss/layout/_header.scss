@@ -2,19 +2,30 @@
   display: flex;
   justify-content: center;
   background-color: $color-primary;
-  height: 28vh;
+  height: 26vh;
+  @media all and (min-width: 768px) {
+    height: 28vh;
+  }
   &__container {
-    width: 580px;
+    width: 300px;
     height: 21vh;
     border-radius: 5px;
     background-color: $color-secondary;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0 2rem 0;
+    margin: 1rem 0 2rem 0;
+    @media all and (min-width: 768px) {
+      margin: 2rem 0 2rem 0;
+      width: 580px;
+    }
   }
   &__image {
     width: 150px;
+    display: none;
+    @media all and (min-width: 768px) {
+      display: inline;
+    }
   }
   &__title-container {
     text-align: center;
