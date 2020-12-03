@@ -55,7 +55,7 @@
     border-right: 3px solid white;
     height: 61vh;
     overflow-y: scroll;
-    width: 25vw;
+    width: 23vw;
     padding-left: 40px;
     margin-top: 20px;
     @media all and (min-width: 768px) {
@@ -85,7 +85,7 @@
   &__results {
     height: 63vh;
     overflow-y: scroll;
-    width: 75vw;
+    width: 77vw;
     margin: auto;
     color: $color-secondary;
     &--list {
