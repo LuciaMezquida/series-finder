@@ -1,4 +1,6 @@
-# Evaluación Final. Módulo 2
+![header](https://i.ibb.co/pwBLgTj/Captura-de-pantalla-2020-12-03-a-las-17-37-20.png)
+
+# Luziflix. Series finder
 
 Esta es la evaluación final del módulo 2 (JavaScript) del curso de <a href="https://adalab.es/" target="_blank">Adalab Digital</a>. Se trata de una web de búsqueda de series, que a través de la API de TV Maze nos permite hacer una búsqueda de series por su título y guardarlas en favoritos.
 
