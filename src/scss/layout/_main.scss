@@ -5,7 +5,7 @@
   background-size: cover;
   height: 92vh;
   @media all and (min-width: 768px) {
-    height: 72vh;
+    height: 77vh;
   }
   &__form-container {
     padding: 20px;
@@ -51,15 +51,21 @@
     display: flex;
   }
   &__favourites {
-    display: none;
-    border-right: 3px solid white;
-    height: 61vh;
+    transition: ease 1s;
+    position: absolute;
+    left: -350px;
+    top: 318px;
+    background-color: $color-primary;
+    height: 64vh;
     overflow-y: scroll;
-    width: 23vw;
+    width: 350px;
     padding-left: 40px;
     margin-top: 20px;
     @media all and (min-width: 768px) {
-      display: inline;
+      border-right: 3px solid white;
+      background-color: transparent;
+      position: absolute;
+      left: 0;
     }
 
     &--title {
@@ -83,11 +89,14 @@
     }
   }
   &__results {
-    height: 63vh;
+    height: 68vh;
     overflow-y: scroll;
-    width: 77vw;
     margin: auto;
     color: $color-secondary;
+    @media all and (min-width: 768px) {
+      position: absolute;
+      left: 350px;
+    }
     &--list {
       display: flex;
       flex-wrap: wrap;
@@ -140,4 +149,44 @@
     text-align: center;
     transform: translate(200px, 50px);
   }
+}
+
+.fa-arrow-alt-circle-right,
+.fa-times {
+  width: 28px;
+  height: 28px;
+  color: white;
+  position: absolute;
+  top: 348px;
+  z-index: 2;
+  text-align: center;
+  font-size: 25px;
+  @media all and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.checkbox {
+  width: 28px;
+  height: 28px;
+  top: 348px;
+  position: absolute;
+  z-index: 3;
+  opacity: 0;
+  @media all and (min-width: 768px) {
+    display: none;
+  }
+}
+.checkbox:checked ~ .main__favourites {
+  transition: ease 1s;
+  position: absolute;
+  left: 0;
+}
+
+.checkbox:checked ~ .fa-arrow-alt-circle-right {
+  display: none;
+}
+
+.checkbox:not(:checked) ~ .fa-times {
+  display: none;
 }
