@@ -21,6 +21,8 @@ Recorriendo dicho array, llamamos a una función para que nos pinte en pantalla 
 El usuario puede hacer click sobre una serie, se invierte el fondo y color del título y la añade a la sección de favoritos mediante su almacenamiento en un array. Al refrescar la página, los favoritos se mantienen, pues son almacenados en el local storage del navegador.
 Para borrar los favoritos, se puede hacer con un botón que hay junto a cada favorito, haciendo click sobre la serie seleccionada en la zona de resultados o borrándolas todas con el botón 'Delete all'.
 
+![Landing](https://i.ibb.co/1KbF06D/Captura-de-pantalla-2021-01-03-a-las-19-11-25.png)
+
 ## Pasos para arrancar el proyecto:
 
 Este proyecto está realizado con el starter kit de Adalab. Los pasos para arrancar el proyecto podrás encontrarlos <a href="https://github.com/Adalab/adalab-web-starter-kit" target="_blank">aquí</a>.
